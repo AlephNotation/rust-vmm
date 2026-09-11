@@ -1,0 +1,20 @@
+[package]
+name = "virtio-vsock"
+version = "0.12.0"
+authors = ["rust-vmm community", "rust-vmm AWS maintainers <rust-vmm-maintainers@amazon.com>"]
+description = "virtio vsock device implementation"
+repository.workspace = true
+keywords = ["virtio", "vsock"]
+readme = "README.md"
+license = "Apache-2.0 OR BSD-3-Clause"
+edition = "2021"
+
+[dependencies]
+# The `path` part gets stripped when publishing the crate.
+virtio-queue = { workspace = true }
+virtio-bindings = { workspace = true }
+vm-memory = { workspace = true }
+
+[dev-dependencies]
+virtio-queue = { workspace = true, features = ["test-utils"] }
+vm-memory = { workspace = true, features = ["backend-mmap", "backend-atomic"] }
